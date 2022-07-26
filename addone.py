@@ -21,7 +21,7 @@ That's cheating (because I have done it before...) so you must modify the list i
 Test Cases:
 a = [1, 2, 3]; output = [1, 2, 4]
 a = [9]; output = [1,0]
-a = [1, 4, 5, 9]; output = [1]
+a = [1, 4, 5, 9]; output = [1, 4, 6 0]
 """
 
 class Solution:
@@ -30,7 +30,17 @@ class Solution:
         # return type: list
 
         # TODO: Write code below to return a list "ary" with the solution to the prompt
-        
+
+        if ary != [9]:
+            if ary[-1] != 9:
+                ary[-1] += 1
+            else:
+                ary.pop()
+                ary = self.addOne(ary)
+                ary.append(0)
+        else:
+            return [1,0]
+
         return ary
 
 def main():
